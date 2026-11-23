@@ -504,8 +504,9 @@
 #chat li.chat-message .roll-result-label:only-child,#chat li.chat-message .dice-result > .roll-result-label:first-of-type{flex:1 1 auto}
 #chat li.chat-message .roll-result-label.failure,#chat li.chat-message .roll-result-label.bestial-failure{color:#e07a80 !important}
 #chat li.chat-message .roll-result-label.messy-critical{color:#ff6b74 !important}
-#chat .chat-log li.chat-message,#chat-notifications li.chat-message,#chat-popout li.chat-message{outline:1px solid #3a3233 !important;outline-offset:-1px !important;box-shadow:inset 3px 0 0 var(--rld-bar,var(--ccs-chat-border-color,#6d645b)) !important;padding-left:16px !important}
-#chat li.chat-message:has(.roll-result-label.failure),#chat li.chat-message:has(.roll-result-label.bestial-failure),#chat-notifications li.chat-message:has(.roll-result-label.failure),#chat-notifications li.chat-message:has(.roll-result-label.bestial-failure){--rld-bar:#b0202c}
-#chat li.chat-message:has(.roll-result-label.success),#chat-notifications li.chat-message:has(.roll-result-label.success){--rld-bar:#d9d0c0}
-#chat li.chat-message:has(.roll-result-label.messy-critical),#chat-notifications li.chat-message:has(.roll-result-label.messy-critical){--rld-bar:#e0404c}
+#chat .chat-log li.chat-message,#chat-notifications li.chat-message,#chat-popout li.chat-message{outline:1px solid #3a3233 !important;outline-offset:-1px !important;box-shadow:inset 3px 0 0 var(--ccs-chat-border-color,#6d645b) !important;padding-left:16px !important}
+/* 이어 말하기: 조각 이어 붙이기 */
+#chat .chat-log li.chat-message.gcs-has-next{margin-bottom:0 !important;border-bottom-left-radius:0 !important;border-bottom-right-radius:0 !important;clip-path:inset(0 0 1px 0);padding-bottom:4px !important}
+#chat .chat-log li.chat-message.gcs-cont{margin-top:-2px !important;border-top-left-radius:0 !important;border-top-right-radius:0 !important;clip-path:inset(1px 0 0 0);padding-top:2px !important}
+#chat .chat-log li.chat-message.gcs-cont.gcs-has-next{clip-path:inset(1px 0 1px 0)}
 /* ── 르노 채팅 END ── */

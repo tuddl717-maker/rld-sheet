@@ -26,13 +26,30 @@ Hooks.once('init', () => {
   Handlebars.registerHelper('rldColIcon', (k) => `${P}/assets/ic_${k}.webp`)
 })
 
-Hooks.once('setup', () => {
-  const entry = CONFIG.Actor.sheetClasses?.vampire?.['wod5e.VampireActorSheet']
-  const Base = entry?.cls
+let registered = false
+
+async function findBase() {
+  try {
+    const m = await import('/systems/wod5e/system/actor/vtm/vampire-actor-sheet.js')
+    if (m?.VampireActorSheet) return m.VampireActorSheet
+  } catch (e) {
+    console.warn(`${MOD} | wod5e 시트 파일을 직접 못 불러와서 등록 목록에서 찾을게요.`, e)
+  }
+  return CONFIG.Actor.sheetClasses?.vampire?.['wod5e.VampireActorSheet']?.cls
+}
+
+Hooks.once('init', () => register())
+Hooks.once('ready', () => register())
+
+async function register() {
+  if (registered) return
+  const Base = await findBase()
   if (!Base) {
     console.error(`${MOD} | wod5e VampireActorSheet를 찾지 못했어요.`)
     return
   }
+  if (registered) return
+  registered = true
 
   class RLDVampireSheet extends Base {
     static DEFAULT_OPTIONS = {
@@ -102,4 +119,5 @@ Hooks.once('setup', () => {
     makeDefault: true,
     label: '르노의 마지막 춤 시트'
   })
-})
+  console.log(`${MOD} | 시트 등록 완료`)
+}

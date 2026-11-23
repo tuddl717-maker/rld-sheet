@@ -469,53 +469,43 @@
 .application.sheet.wod5e.actor.rld-sheet section.tab .resource-counter-step[data-state='-'] { background: var(--rld-ink) !important; }
 .application.sheet.wod5e.actor.rld-sheet section.tab hr { border-color: var(--rld-line) !important; }
 
-/* ───────── 채팅 말칸 (가스등 판 스타일) ───────── */
-#chat .chat-log li.chat-message,
-#chat-notifications li.chat-message,
-#chat-popout li.chat-message {
-  background: #f5f3ef !important;
-  background-image: none !important;
-  color: #24242a !important;
-  border: 1px solid var(--ccs-chat-border-color, rgba(120, 100, 90, 0.6)) !important;
-  border-radius: 14px !important;
-  padding: 11px 14px 12px !important;
-  margin: 0 0 8px !important;
-  box-shadow: none !important;
-  font-family: 'Noto Serif KR', 'Nanum Myeongjo', serif;
-}
-#chat li.chat-message .message-content,
-#chat-notifications li.chat-message .message-content {
-  font-size: 14px;
-  line-height: 1.6;
-  color: #24242a;
-}
-#chat li.chat-message .message-header,
-#chat li.chat-message .message-sender,
-#chat li.chat-message .message-metadata,
-#chat-notifications li.chat-message .message-header {
-  color: #24242a !important;
-}
-#chat li.chat-message .message-metadata { color: #8a7d78 !important; font-size: 11px; }
-#chat li.chat-message .gcs-char { font-family: 'Hahmlet', 'Noto Serif KR', serif; font-weight: 600; }
-#chat li.chat-message .gcs-portrait { border-color: rgba(158, 27, 38, 0.6); }
-/* 말칸 사진은 가스등 말칸 것 하나만 */
-.gcs-message .chat-portrait-container { display: none !important; }
-/* 귓속말은 살짝 다른 톤 */
-#chat li.chat-message.whisper { background: #ece6ef !important; }
-/* 이어 말하기로 붙은 말칸은 아래 여백 없이 */
-#chat li.chat-message.gcs-has-next { margin-bottom: 0 !important; box-shadow: 0 2px 0 rgba(0, 0, 0, 0) !important; }
-/* wod5e 굴림 카드는 말칸 안에서 그대로 */
-#chat li.chat-message .roll-message,
-#chat li.chat-message .dice-roll { color: inherit; }
-/* v14: 가스등 말칸 이름 칸이 .message-names 안에 들어가서 같이 숨겨지는 것 방지 */
-.gcs-message .message-header > .message-names:has(.gcs-sender) { display: flex !important; flex: 1 1 auto; min-width: 0; }
-.gcs-message .message-header { align-items: flex-start; }
-/* wod5e 기본 말칸 틀(빈 제목·그림자 상자·구분선) 걷어내기 */
-#chat li.chat-message .message-content > .wod5e,
-#chat-notifications li.chat-message .message-content > .wod5e { box-shadow: none !important; border: none !important; background: none !important; padding: 0 !important; }
-#chat li.chat-message .message-content > .wod5e > header:not(:has(img)),
-#chat-notifications li.chat-message .message-content > .wod5e > header:not(:has(img)) { display: none !important; }
-#chat li.chat-message > hr,
-#chat-notifications li.chat-message > hr { display: none !important; }
-#chat li.chat-message .message-header,
-#chat-notifications li.chat-message .message-header { background: none !important; margin-bottom: 6px; }
+
+/* ── 르노 채팅 START ── */
+#chat .chat-log li.chat-message,#chat-notifications li.chat-message,#chat-popout li.chat-message{background:#1c1718 !important;background-image:none !important;color:#e9e2d4 !important;border:1px solid rgba(217,205,182,.16) !important;border-left-width:3px !important;border-left-style:solid !important;border-left-color:var(--ccs-chat-border-color,#8a7d78) !important;border-radius:6px !important;padding:12px 14px 12px !important;margin:0 0 10px !important;box-shadow:none !important;font-family:'Noto Serif KR','Nanum Myeongjo',serif}
+#chat li.chat-message:has(.roll-result-label.failure),#chat li.chat-message:has(.roll-result-label.bestial-failure),#chat-notifications li.chat-message:has(.roll-result-label.failure),#chat-notifications li.chat-message:has(.roll-result-label.bestial-failure){border-left-color:#b0202c !important}
+#chat li.chat-message:has(.roll-result-label.success),#chat-notifications li.chat-message:has(.roll-result-label.success){border-left-color:#d9d0c0 !important}
+#chat li.chat-message:has(.roll-result-label.messy-critical),#chat-notifications li.chat-message:has(.roll-result-label.messy-critical){border-left-color:#e0404c !important}
+#chat li.chat-message.whisper{background:#1d1822 !important}
+#chat li.chat-message > hr,#chat-notifications li.chat-message > hr{display:none !important}
+#chat li.chat-message .message-header,#chat-notifications li.chat-message .message-header{background:none !important;color:#e9e2d4 !important;align-items:flex-start;padding-bottom:9px;margin-bottom:10px;border-bottom:1px solid rgba(217,205,182,.14)}
+#chat li.chat-message.gcs-cont .message-header{border-bottom:none}
+.gcs-message .message-header > .message-names:has(.gcs-sender){display:flex !important;flex:1 1 auto;min-width:0}
+.gcs-message .chat-portrait-container{display:none !important}
+#chat li.chat-message .gcs-portrait,#chat-notifications li.chat-message .gcs-portrait{width:38px;height:38px;flex:0 0 38px;border-radius:4px;border:1px solid rgba(217,205,182,.35)}
+#chat li.chat-message .gcs-char,#chat-notifications li.chat-message .gcs-char{font-family:'Noto Serif KR',serif;font-weight:700;font-size:14px;color:#f1ebdf}
+#chat li.chat-message .gcs-user,#chat-notifications li.chat-message .gcs-user{font-size:11px;opacity:1;color:#8f857a !important}
+#chat li.chat-message .message-metadata,#chat-notifications li.chat-message .message-metadata{color:#8f857a !important;font-size:11px}
+#chat li.chat-message .message-metadata a{color:#8f857a !important}
+#chat li.chat-message .message-content,#chat-notifications li.chat-message .message-content{font-size:14px;line-height:1.65;color:#e9e2d4}
+#chat li.chat-message .message-content > .wod5e,#chat-notifications li.chat-message .message-content > .wod5e{box-shadow:none !important;border:none !important;background:none !important;padding:0 !important;color:#e9e2d4}
+#chat li.chat-message .message-content > .wod5e > header:not(:has(img)),#chat-notifications li.chat-message .message-content > .wod5e > header:not(:has(img)){display:none !important}
+/* 굴림 카드 */
+#chat li.chat-message .roll-label,#chat-notifications li.chat-message .roll-label{font-family:'Hahmlet','Noto Serif KR',serif;font-size:19px;font-weight:600;text-transform:none !important;text-align:left !important;color:#f3ecdc !important;margin:0 0 10px !important;letter-spacing:0 !important;background:none !important;border:none !important}
+#chat li.chat-message .dice-roll,#chat-notifications li.chat-message .dice-roll{background:none !important;border:none !important;box-shadow:none !important;padding:0 !important}
+#chat li.chat-message .dice-result,#chat-notifications li.chat-message .dice-result{display:flex;flex-wrap:wrap;align-items:center;background:none !important;border:none !important;padding:0 !important;color:#e9e2d4}
+#chat li.chat-message .dice-icons,#chat-notifications li.chat-message .dice-icons{flex:0 0 100%;display:flex;flex-wrap:wrap;gap:5px;justify-content:flex-start !important;margin-bottom:12px}
+#chat li.chat-message .dice-icons img,#chat-notifications li.chat-message .dice-icons img{width:30px !important;height:30px !important;border-radius:3px;border:1px solid rgba(217,205,182,.15) !important;margin:0 !important}
+#chat li.chat-message .dice-tooltip,#chat li.chat-message .collapsible-content{flex:0 0 100%}
+#chat li.chat-message .total-and-difficulty,#chat-notifications li.chat-message .total-and-difficulty{flex:1 1 auto;display:flex !important;gap:0;align-items:center;border:none !important;border-top:1px solid rgba(217,205,182,.14) !important;background:none !important;padding:9px 0 0 !important;margin:0 !important;font-size:12px;color:#a59a8c}
+#chat li.chat-message .total-and-difficulty > div,#chat-notifications li.chat-message .total-and-difficulty > div{display:flex;gap:4px;border:none !important;background:none !important;padding:0 !important;flex:none}
+#chat li.chat-message .roll-difficulty::before,#chat-notifications li.chat-message .roll-difficulty::before{content:'/';margin:0 6px;color:#6d645b}
+#chat li.chat-message .total-title,#chat li.chat-message .difficulty-title,#chat li.chat-message .total-contents,#chat li.chat-message .difficulty-contents{font-size:12px !important;font-weight:400 !important;color:#a59a8c !important;background:none !important;border:none !important;padding:0 !important}
+#chat li.chat-message .roll-result-label,#chat-notifications li.chat-message .roll-result-label{flex:0 0 auto;margin-left:auto;background:none !important;border:none !important;border-top:1px solid rgba(217,205,182,.14) !important;padding:9px 0 0 !important;font-size:13px;font-weight:700;color:#f1ebdf !important;text-align:right}
+#chat li.chat-message .roll-result-label:only-child,#chat li.chat-message .dice-result > .roll-result-label:first-of-type{flex:1 1 auto}
+#chat li.chat-message .roll-result-label.failure,#chat li.chat-message .roll-result-label.bestial-failure{color:#e07a80 !important}
+#chat li.chat-message .roll-result-label.messy-critical{color:#ff6b74 !important}
+#chat .chat-log li.chat-message,#chat-notifications li.chat-message,#chat-popout li.chat-message{outline:1px solid #3a3233 !important;outline-offset:-1px !important;box-shadow:inset 3px 0 0 var(--rld-bar,var(--ccs-chat-border-color,#6d645b)) !important;padding-left:16px !important}
+#chat li.chat-message:has(.roll-result-label.failure),#chat li.chat-message:has(.roll-result-label.bestial-failure),#chat-notifications li.chat-message:has(.roll-result-label.failure),#chat-notifications li.chat-message:has(.roll-result-label.bestial-failure){--rld-bar:#b0202c}
+#chat li.chat-message:has(.roll-result-label.success),#chat-notifications li.chat-message:has(.roll-result-label.success){--rld-bar:#d9d0c0}
+#chat li.chat-message:has(.roll-result-label.messy-critical),#chat-notifications li.chat-message:has(.roll-result-label.messy-critical){--rld-bar:#e0404c}
+/* ── 르노 채팅 END ── */

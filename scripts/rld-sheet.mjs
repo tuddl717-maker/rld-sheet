@@ -47,6 +47,11 @@ Hooks.once('i18nInit', () => {
     vtm.BloodPotency = '혈량'
     vtm.BloodSurge = '혈량 고양'
   }
+  const rl = game.i18n.translations?.WOD5E?.RollList
+  if (rl) {
+    rl.SuccessBy = '성공 · 차이 {string}'
+    rl.FailureBy = '실패 · 차이 {string}'
+  }
 })
 Hooks.once('ready', () => register())
 

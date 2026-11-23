@@ -97,6 +97,8 @@ async function register() {
         crest: `${P}/assets/${crest}.webp`,
         clanName: clanName || '혈족 없음',
         potency: sys.blood?.potency ?? 0,
+        hp: Math.max(0, (sys.health?.max ?? 0) - (sys.health?.superficial ?? 0) - (sys.health?.aggravated ?? 0)),
+        wp: Math.max(0, (sys.willpower?.max ?? 0) - (sys.willpower?.superficial ?? 0) - (sys.willpower?.aggravated ?? 0)),
         xp: { total, spent: Math.max(0, total - remaining), remaining },
         assets: P
       }

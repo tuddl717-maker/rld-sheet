@@ -1,0 +1,107 @@
+{{!-- 르노의 마지막 춤 — 시트 머리 --}}
+<header class='actor-header rld-hdr'>
+  <div class='rld-banner' style="background-image:linear-gradient(180deg,rgba(10,7,8,.15),rgba(10,7,8,0) 40%,rgba(10,7,8,.55) 100%),url('{{ rld.bg }}')">
+    <img class='rld-corner tl' src='{{ rld.assets }}/assets/corner.webp' alt='' />
+    <img class='rld-corner tr' src='{{ rld.assets }}/assets/corner.webp' alt='' />
+
+    <div class='rld-por'>
+      <div class='rld-arch'>
+        <div class='rld-pic'>
+          <img class='profile-img' data-action='editImage' src='{{ img }}' data-edit='img' title='{{ actor.name }}' />
+        </div>
+        <img class='rld-archframe' src='{{ rld.assets }}/assets/arch_s.webp' alt='' />
+      </div>
+      <div class='rld-ribbon'>
+        {{#if locked}}
+          <span class='rld-name'>{{ name }}</span>
+        {{else}}
+          <input class='rld-name' name='name' type='text' value='{{ name }}' placeholder="{{localize 'WOD5E.Name'}}" />
+        {{/if}}
+      </div>
+    </div>
+
+    <div class='rld-clanbox'>
+      <img class='rld-crest' src='{{ rld.crest }}' alt='' />
+      {{#if locked}}
+        <div class='rld-clanname'>{{ rld.clanName }}</div>
+      {{else}}
+        <div class='rld-clanedit resource resource-content'>
+          {{> "systems/wod5e/display/shared/actors/partials/dynamic-item-display.hbs" item=clan type="clan"}}
+        </div>
+      {{/if}}
+      <div class='rld-xp'>
+        <div class='rld-xt'>경험치</div>
+        <div class='rld-xr'>
+          <div><span>총</span><b>{{ rld.xp.total }}</b></div>
+          <div><span>사용</span><b>{{ rld.xp.spent }}</b></div>
+          <div><span>남은</span><b>{{ rld.xp.remaining }}</b></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class='rld-panel'>
+    <div class='rld-medrow'>
+      <div class='rld-medal'><div class='mf'><img src='{{ rld.assets }}/assets/medal.webp' alt='' /><span class='v'>{{ health.value }}</span></div><div class='lb'>건강</div></div>
+      <div class='rld-medal'><div class='mf'><img src='{{ rld.assets }}/assets/medal.webp' alt='' /><span class='v'>{{ willpower.value }}</span></div><div class='lb'>의지력</div></div>
+      <div class='rld-medal'><div class='mf'><img src='{{ rld.assets }}/assets/medal.webp' alt='' /><span class='v'>{{ humanity.value }}</span></div><div class='lb'>인간성</div></div>
+      <div class='rld-medal hunger'><div class='mf'><img src='{{ rld.assets }}/assets/medal.webp' alt='' /><svg viewBox='0 0 18 24'><path d='M9 1C9 1 2 10 2 15a7 7 0 0014 0C16 10 9 1 9 1z'/></svg><span class='v'>{{ hunger.value }}</span></div><div class='lb'>허기</div></div>
+      <div class='rld-medal'><div class='mf'><img src='{{ rld.assets }}/assets/medal.webp' alt='' /><span class='v'>{{ rld.potency }}</span></div><div class='lb'>혈량</div></div>
+    </div>
+
+    <div class='rld-trkrow'>
+      <div class='rld-tc'>
+        <div class='rld-k'>
+          <i class='fas fa-minus resource-control resource-minus' data-action='resourceChange' data-resource='health' data-resource-action='minus'></i>
+          건강
+          <i class='fas fa-plus resource-control resource-plus' data-action='resourceChange' data-resource='health' data-resource-action='plus'></i>
+        </div>
+        <div class='resource health'>
+          <div class='resource-counter editable' data-states='/:superficial,x:aggravated' data-max='{{ health.max }}' data-superficial='{{ health.superficial }}' data-aggravated='{{ health.aggravated }}' data-name='system.health'>
+            {{#numLoop health.max}}<span class='resource-counter-step' data-action='squareCounterChange' data-index='{{ this }}' data-state=''></span>{{/numLoop}}
+          </div>
+        </div>
+      </div>
+      <div class='rld-tc'>
+        <div class='rld-k'>
+          <i class='fas fa-minus resource-control resource-minus' data-action='resourceChange' data-resource='willpower' data-resource-action='minus'></i>
+          <span class='rollable' data-action='willpowerRoll' title="{{localize 'WOD5E.Chat.RollWillpower'}}">의지력</span>
+          <i class='fas fa-plus resource-control resource-plus' data-action='resourceChange' data-resource='willpower' data-resource-action='plus'></i>
+        </div>
+        <div class='resource willpower'>
+          <div class='resource-counter editable' data-states='/:superficial,x:aggravated' data-max='{{ willpower.max }}' data-superficial='{{ willpower.superficial }}' data-aggravated='{{ willpower.aggravated }}' data-name='system.willpower'>
+            {{#numLoop willpower.max}}<span class='resource-counter-step' data-action='squareCounterChange' data-index='{{ this }}' data-state=''></span>{{/numLoop}}
+          </div>
+        </div>
+      </div>
+      <div class='rld-tc wide'>
+        <div class='rld-k'>인간성</div>
+        <div class='humanity'>
+          <div class='resource-counter editable' data-states='/:stains,-:value' data-value='{{ humanity.value }}' data-stains='{{ humanity.stains }}' data-name='system.humanity'>
+            {{#numLoop 10}}<span class='resource-counter-step' data-action='squareCounterChange' data-index='{{ this }}' data-state=''></span>{{/numLoop}}
+          </div>
+        </div>
+      </div>
+      <div class='rld-tc'>
+        <div class='rld-k'>허기</div>
+        <div class='hunger'>
+          <div class='resource-value' data-value='{{ hunger.value }}' data-name='system.hunger.value'>
+            <span class='resource-value-empty hunger-value' data-action='dotCounterEmpty'></span>
+            {{#numLoop hunger.max}}<span class='resource-value-step hunger-value' data-action='dotCounterChange' data-index='{{ this }}'></span>{{/numLoop}}
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class='rld-btnrow'>
+      <button class='rld-btn red rollable' type='button' data-action='roll' name='rouse' data-disable-basic-dice='true' data-use-absolute-value='true' data-absolute-value='1' data-label="{{localize 'WOD5E.VTM.RousingBlood'}}" data-increase-hunger='true' data-difficulty='1'>각성 판정</button>
+      <button class='rld-btn' type='button' data-action='remorseRoll'>회한 판정</button>
+      {{#if frenzyActive}}
+        <button class='rld-btn on' type='button' data-action='endFrenzy'>광란 끝내기</button>
+      {{else}}
+        <button class='rld-btn' type='button' data-action='resistFrenzy'>광란 판정</button>
+      {{/if}}
+      <button class='rld-btn' type='button' data-action='rldWillpowerReroll'>의지력 재굴림</button>
+    </div>
+  </div>
+</header>

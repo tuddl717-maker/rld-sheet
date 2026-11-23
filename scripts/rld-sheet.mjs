@@ -97,6 +97,11 @@ async function register() {
         crest: `${P}/assets/${crest}.webp`,
         clanName: clanName || '혈족 없음',
         potency: sys.blood?.potency ?? 0,
+        por: (() => {
+          const f = this.actor.getFlag(MOD, 'portrait') ?? {}
+          const sc = Number(f.scale) || 1, x = Number(f.x) || 50, y = Number(f.y) || 12
+          return `object-position:${x}% ${y}%;transform:scale(${sc});transform-origin:${x}% ${y}%;`
+        })(),
         hp: Math.max(0, (sys.health?.max ?? 0) - (sys.health?.superficial ?? 0) - (sys.health?.aggravated ?? 0)),
         wp: Math.max(0, (sys.willpower?.max ?? 0) - (sys.willpower?.superficial ?? 0) - (sys.willpower?.aggravated ?? 0)),
         xp: { total, spent: Math.max(0, total - remaining), remaining },

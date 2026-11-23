@@ -468,3 +468,42 @@
 .application.sheet.wod5e.actor.rld-sheet section.tab .resource-counter-step[data-state='x'] { background: var(--rld-red) !important; }
 .application.sheet.wod5e.actor.rld-sheet section.tab .resource-counter-step[data-state='-'] { background: var(--rld-ink) !important; }
 .application.sheet.wod5e.actor.rld-sheet section.tab hr { border-color: var(--rld-line) !important; }
+
+/* ───────── 채팅 말칸 (가스등 판 스타일) ───────── */
+#chat .chat-log li.chat-message,
+#chat-notifications li.chat-message,
+#chat-popout li.chat-message {
+  background: #f5f3ef !important;
+  background-image: none !important;
+  color: #24242a !important;
+  border: 1px solid var(--ccs-chat-border-color, rgba(120, 100, 90, 0.6)) !important;
+  border-radius: 14px !important;
+  padding: 11px 14px 12px !important;
+  margin: 0 0 8px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.28) !important;
+  font-family: 'Noto Serif KR', 'Nanum Myeongjo', serif;
+}
+#chat li.chat-message .message-content,
+#chat-notifications li.chat-message .message-content {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #24242a;
+}
+#chat li.chat-message .message-header,
+#chat li.chat-message .message-sender,
+#chat li.chat-message .message-metadata,
+#chat-notifications li.chat-message .message-header {
+  color: #24242a !important;
+}
+#chat li.chat-message .message-metadata { color: #8a7d78 !important; font-size: 11px; }
+#chat li.chat-message .gcs-char { font-family: 'Hahmlet', 'Noto Serif KR', serif; font-weight: 600; }
+#chat li.chat-message .gcs-portrait { border-color: rgba(158, 27, 38, 0.6); }
+/* 말칸 사진은 가스등 말칸 것 하나만 */
+.gcs-message .chat-portrait-container { display: none !important; }
+/* 귓속말은 살짝 다른 톤 */
+#chat li.chat-message.whisper { background: #ece6ef !important; }
+/* 이어 말하기로 붙은 말칸은 아래 여백 없이 */
+#chat li.chat-message.gcs-has-next { margin-bottom: 0 !important; box-shadow: 0 2px 0 rgba(0, 0, 0, 0) !important; }
+/* wod5e 굴림 카드는 말칸 안에서 그대로 */
+#chat li.chat-message .roll-message,
+#chat li.chat-message .dice-roll { color: inherit; }

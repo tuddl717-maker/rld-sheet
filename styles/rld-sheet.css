@@ -138,7 +138,7 @@
 .rld-sheet .rld-xr div { display: flex; flex-direction: column; align-items: center; border-left: 1px solid rgba(217, 205, 182, 0.25); }
 .rld-sheet .rld-xr div:first-child { border-left: none; }
 .rld-sheet .rld-xr span { font-size: 10px; color: #bfb29c; }
-.rld-sheet .rld-xr b { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; }
+.rld-sheet .rld-xr b { font-family: 'Cormorant Garamond', serif; font-size: 20px; font-weight: 600; font-variant-numeric: lining-nums; font-feature-settings: 'lnum' 1; }
 
 /* 패널 */
 .rld-sheet .rld-panel {
@@ -163,9 +163,10 @@
 .rld-sheet .rld-medal .mf .v {
   position: absolute; inset: 0; display: grid; place-items: center;
   font-family: 'Cormorant Garamond', serif; font-size: 26px; font-weight: 600; color: var(--rld-ivory);
+  font-variant-numeric: lining-nums; font-feature-settings: 'lnum' 1;
 }
 .rld-sheet .rld-medal .mf svg { position: absolute; left: 50%; top: 50%; width: 22px; height: 28px; transform: translate(-50%, -50%); fill: #b01f2b; }
-.rld-sheet .rld-medal.hunger .mf .v { font-size: 15px; color: #fff; padding-top: 5px; }
+.rld-sheet .rld-medal.is-hunger .mf .v { font-size: 15px; color: #fff; padding-top: 5px; }
 .rld-sheet .rld-medal .lb { font-size: 12px; font-weight: 600; margin-top: 3px; color: var(--rld-ivory); }
 
 .rld-sheet .rld-trkrow {

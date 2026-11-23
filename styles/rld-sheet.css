@@ -73,20 +73,20 @@
 .rld-sheet .rld-corner.tl { left: 6px; top: 6px; transform: rotate(-90deg) scaleX(-1); }
 .rld-sheet .rld-corner.tr { right: 6px; top: 6px; transform: rotate(90deg); }
 
-.rld-sheet .rld-por { position: absolute; left: 40px; top: 22px; width: 236px; }
-.rld-sheet .rld-arch { position: relative; width: 206px; height: 230px; margin: 0 auto; }
+.rld-sheet .rld-por { position: absolute; left: 36px; top: 12px; width: 240px; }
+.rld-sheet .rld-arch { position: relative; width: 220px; height: 264px; margin: 0 auto; }
 .rld-sheet .rld-pic {
   position: absolute;
   inset: 0;
   background: #140e10;
-  clip-path: polygon(50% 6%, 40% 11%, 31% 17%, 24% 24%, 18% 32%, 14% 40%, 13% 48%, 13% 91%, 86% 91%, 86% 48%, 85% 40%, 81% 32%, 75% 24%, 68% 17%, 59% 11%);
+  clip-path: polygon(50% 6%, 43% 9%, 38% 12%, 34% 15%, 30% 18%, 27% 21%, 24% 24%, 22% 27%, 19% 30%, 17% 33%, 15.5% 36%, 15% 40%, 15% 91%, 86.5% 91%, 86.5% 40%, 85% 36%, 83% 33%, 80% 30%, 78% 27%, 75% 24%, 73% 21%, 70% 18%, 66% 15%, 62% 12%, 57% 9%);
 }
 .rld-sheet .rld-pic .profile-img {
   position: absolute;
-  left: 12%;
-  top: 5%;
-  width: 76%;
-  height: 87%;
+  left: 15%;
+  top: 6%;
+  width: 71.5%;
+  height: 85%;
   max-width: none;
   object-fit: cover;
   object-position: 50% 18%;

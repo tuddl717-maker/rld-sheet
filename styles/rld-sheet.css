@@ -507,3 +507,6 @@
 /* wod5e 굴림 카드는 말칸 안에서 그대로 */
 #chat li.chat-message .roll-message,
 #chat li.chat-message .dice-roll { color: inherit; }
+/* v14: 가스등 말칸 이름 칸이 .message-names 안에 들어가서 같이 숨겨지는 것 방지 */
+.gcs-message .message-header > .message-names:has(.gcs-sender) { display: flex !important; flex: 1 1 auto; min-width: 0; }
+.gcs-message .message-header { align-items: flex-start; }

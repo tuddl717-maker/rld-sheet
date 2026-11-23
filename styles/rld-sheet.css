@@ -510,3 +510,12 @@
 /* v14: 가스등 말칸 이름 칸이 .message-names 안에 들어가서 같이 숨겨지는 것 방지 */
 .gcs-message .message-header > .message-names:has(.gcs-sender) { display: flex !important; flex: 1 1 auto; min-width: 0; }
 .gcs-message .message-header { align-items: flex-start; }
+/* wod5e 기본 말칸 틀(빈 제목·그림자 상자·구분선) 걷어내기 */
+#chat li.chat-message .message-content > .wod5e,
+#chat-notifications li.chat-message .message-content > .wod5e { box-shadow: none !important; border: none !important; background: none !important; padding: 0 !important; }
+#chat li.chat-message .message-content > .wod5e > header:not(:has(img)),
+#chat-notifications li.chat-message .message-content > .wod5e > header:not(:has(img)) { display: none !important; }
+#chat li.chat-message > hr,
+#chat-notifications li.chat-message > hr { display: none !important; }
+#chat li.chat-message .message-header,
+#chat-notifications li.chat-message .message-header { background: none !important; margin-bottom: 6px; }

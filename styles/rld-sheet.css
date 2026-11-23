@@ -62,7 +62,7 @@
 }
 .rld-sheet .rld-banner {
   position: relative;
-  height: 300px;
+  height: 310px;
   border: 1px solid var(--rld-gold);
   background-color: #0a0708;
   background-size: cover !important;
@@ -73,8 +73,8 @@
 .rld-sheet .rld-corner.tl { left: 6px; top: 6px; transform: rotate(-90deg) scaleX(-1); }
 .rld-sheet .rld-corner.tr { right: 6px; top: 6px; transform: rotate(90deg); }
 
-.rld-sheet .rld-por { position: absolute; left: 44px; top: 62px; width: 190px; }
-.rld-sheet .rld-arch { position: relative; width: 150px; height: 168px; margin: 0 auto; }
+.rld-sheet .rld-por { position: absolute; left: 40px; top: 22px; width: 236px; }
+.rld-sheet .rld-arch { position: relative; width: 206px; height: 230px; margin: 0 auto; }
 .rld-sheet .rld-pic {
   position: absolute;
   inset: 0;
@@ -95,9 +95,9 @@
 }
 .rld-sheet .rld-archframe { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; border: none; }
 .rld-sheet .rld-ribbon {
-  margin: -14px auto 0;
-  width: 190px;
-  height: 39px;
+  margin: -16px auto 0;
+  width: 226px;
+  height: 46px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -107,10 +107,10 @@
 }
 .rld-sheet .rld-name {
   font-family: 'Hahmlet', serif !important;
-  font-size: 14px !important;
+  font-size: 15px !important;
   font-weight: 600;
   color: #2a1416 !important;
-  padding-top: 4px;
+  padding-top: 6px;
   background: transparent !important;
   border: none !important;
   text-align: center;

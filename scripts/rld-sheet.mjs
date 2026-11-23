@@ -39,6 +39,15 @@ async function findBase() {
 }
 
 Hooks.once('init', () => register())
+
+// 용어: 혈기 → 혈량
+Hooks.once('i18nInit', () => {
+  const vtm = game.i18n.translations?.WOD5E?.VTM
+  if (vtm) {
+    vtm.BloodPotency = '혈량'
+    vtm.BloodSurge = '혈량 고양'
+  }
+})
 Hooks.once('ready', () => register())
 
 async function register() {

@@ -69,7 +69,8 @@ function layout() {
   const x1 = (side && side.width ? side.left : window.innerWidth) - 10
   const items = [...root.querySelectorAll('[data-row]')]
   const rows = Math.max(2, ...items.map((el) => Number(el.dataset.row) + 1))
-  const top = 14
+  const nav = document.getElementById('scene-navigation')?.getBoundingClientRect()
+  const top = Math.max(14, (nav?.bottom ?? 0) + 8)
   const gap = 10
   const avail = window.innerHeight - top - 90
   const h = Math.max(120, Math.min(205, (avail - gap * (rows - 1)) / rows))

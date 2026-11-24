@@ -62,11 +62,11 @@
 }
 .rld-sheet .rld-banner {
   position: relative;
-  height: 370px;
+  height: 150px;
   border: 1px solid var(--rld-gold);
   background-color: #0a0708;
   background-size: cover !important;
-  background-position: center 62% !important;
+  background-position: center 38% !important;
   overflow: hidden;
 }
 .rld-sheet .rld-corner { position: absolute; width: 70px; opacity: 0.9; z-index: 2; pointer-events: none; }
@@ -510,3 +510,13 @@
 #chat .chat-log li.chat-message.gcs-cont{margin-top:-2px !important;border-top-left-radius:0 !important;border-top-right-radius:0 !important;clip-path:inset(1px 0 0 0);padding-top:2px !important}
 #chat .chat-log li.chat-message.gcs-cont.gcs-has-next{clip-path:inset(1px 0 1px 0)}
 /* ── 르노 채팅 END ── */
+
+/* ── 0.4: 얼굴 없는 머리 ── */
+.rld-sheet .rld-idbox { position: absolute; left: 40px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 14px; }
+.rld-sheet .rld-idbox .rld-crest { width: 64px; margin: 0; }
+.rld-sheet .rld-idtext { display: flex; flex-direction: column; align-items: center; }
+.rld-sheet .rld-idbox .rld-ribbon { margin: 0; width: 270px; height: 54px; }
+.rld-sheet .rld-idbox .rld-name { font-size: 19px !important; width: 220px; height: 32px; padding-top: 7px; }
+.rld-sheet .rld-idbox .rld-clanname { margin: 2px 0 0; font-size: 14px; color: #d8cdb8; }
+.rld-sheet .rld-idbox .rld-clanedit { margin: 4px 0 0; width: 220px; }
+.rld-sheet .rld-clanbox { top: 50% !important; transform: translateY(-50%); width: 170px !important; }

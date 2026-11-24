@@ -4,31 +4,27 @@
     <img class='rld-corner tl' src='{{ rld.assets }}/assets/corner.webp' alt='' />
     <img class='rld-corner tr' src='{{ rld.assets }}/assets/corner.webp' alt='' />
 
-    <div class='rld-por'>
-      <div class='rld-arch'>
-        <div class='rld-pic'>
-          <img class='profile-img' data-action='editImage' src='{{ img }}' data-edit='img' title='{{ actor.name }}' style='{{ rld.por }}' />
+    <div class='rld-idbox'>
+      <img class='rld-crest' src='{{ rld.crest }}' alt='' />
+      <div class='rld-idtext'>
+        <div class='rld-ribbon'>
+          {{#if locked}}
+            <span class='rld-name'>{{ name }}</span>
+          {{else}}
+            <input class='rld-name' name='name' type='text' value='{{ name }}' placeholder="{{localize 'WOD5E.Name'}}" />
+          {{/if}}
         </div>
-        <img class='rld-archframe' src='{{ rld.assets }}/assets/arch_w.webp' alt='' />
-      </div>
-      <div class='rld-ribbon'>
         {{#if locked}}
-          <span class='rld-name'>{{ name }}</span>
+          <div class='rld-clanname'>{{ rld.clanName }}</div>
         {{else}}
-          <input class='rld-name' name='name' type='text' value='{{ name }}' placeholder="{{localize 'WOD5E.Name'}}" />
+          <div class='rld-clanedit resource resource-content'>
+            {{> "systems/wod5e/display/shared/actors/partials/dynamic-item-display.hbs" item=clan type="clan"}}
+          </div>
         {{/if}}
       </div>
     </div>
 
     <div class='rld-clanbox'>
-      <img class='rld-crest' src='{{ rld.crest }}' alt='' />
-      {{#if locked}}
-        <div class='rld-clanname'>{{ rld.clanName }}</div>
-      {{else}}
-        <div class='rld-clanedit resource resource-content'>
-          {{> "systems/wod5e/display/shared/actors/partials/dynamic-item-display.hbs" item=clan type="clan"}}
-        </div>
-      {{/if}}
       <div class='rld-xp'>
         <div class='rld-xt'>경험치</div>
         <div class='rld-xr'>

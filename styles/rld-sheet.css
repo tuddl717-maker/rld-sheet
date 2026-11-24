@@ -608,3 +608,7 @@
 .application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .resource-value-step { width: 10px !important; height: 10px !important; }
 .application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .resource-counter-step { width: 12px !important; height: 12px !important; }
 .application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .item img { width: 20px !important; height: 20px !important; }
+
+/* ── 0.4.3: 뱃지 모으기 ── */
+.rld-sheet .rld-medrow { justify-content: center !important; gap: 26px; }
+.rld-sheet .rld-medal { width: auto; min-width: 46px; }

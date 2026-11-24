@@ -65,12 +65,31 @@ async function register() {
   if (registered) return
   registered = true
 
+  let DISC = {}
+  try {
+    DISC = await import('/systems/wod5e/system/actor/vtm/scripts/disciplines.js')
+  } catch (e) {
+    console.warn(`${MOD} | 디시플린 선택 스크립트를 못 불러왔어요.`, e)
+  }
+
+  // 같은 걸 다시 누르면 선택 해제(먹색으로 되돌리기)
+  async function clearSelection(actor) {
+    const sys = actor.system
+    const upd = { 'system.selectedDiscipline': '', 'system.selectedDisciplinePower': '' }
+    if (sys.selectedDiscipline) upd[`system.disciplines.${sys.selectedDiscipline}.selected`] = false
+    const p = sys.selectedDisciplinePower && actor.items.get(sys.selectedDisciplinePower)
+    if (p) await p.update({ 'system.selected': false })
+    await actor.update(upd)
+  }
+
   class RLDVampireSheet extends Base {
     static DEFAULT_OPTIONS = {
       classes: ['wod5e', 'actor', 'sheet', 'vampire', 'rld-sheet'],
       position: { width: 940, height: 920 },
       actions: {
-        rldWillpowerReroll: RLDVampireSheet.#onWillpowerReroll
+        rldWillpowerReroll: RLDVampireSheet.#onWillpowerReroll,
+        selectDiscipline: RLDVampireSheet.#onSelectDiscipline,
+        selectDisciplinePower: RLDVampireSheet.#onSelectPower
       }
     }
 
@@ -113,6 +132,20 @@ async function register() {
         assets: P
       }
       return data
+    }
+
+    static async #onSelectDiscipline(event, target) {
+      event.preventDefault()
+      const d = target.getAttribute('data-discipline')
+      if (d && this.actor.system.selectedDiscipline === d) return clearSelection(this.actor)
+      return DISC._onSelectDiscipline?.call(this, event, target)
+    }
+
+    static async #onSelectPower(event, target) {
+      event.preventDefault()
+      const p = target.getAttribute('data-power')
+      if (p && this.actor.system.selectedDisciplinePower === p) return clearSelection(this.actor)
+      return DISC._onSelectDisciplinePower?.call(this, event, target)
     }
 
     // 의지력 재굴림: 이 캐릭터의 가장 최근 굴림 메시지에 wod5e의 재굴림 창을 띄운다.

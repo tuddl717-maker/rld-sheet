@@ -63,7 +63,7 @@ function render() {
 // 왼쪽 툴바와 오른쪽 사이드바 사이에 맞춰 카드 크기·위치 계산
 function layout() {
   if (!root || root.hidden) return
-  const left = document.getElementById('ui-left')?.getBoundingClientRect()
+  const left = (document.getElementById('scene-controls') ?? document.getElementById('ui-left'))?.getBoundingClientRect()
   const side = document.getElementById('sidebar')?.getBoundingClientRect()
   const x0 = (left?.right ?? 60) + 10
   const x1 = (side && side.width ? side.left : window.innerWidth) - 10

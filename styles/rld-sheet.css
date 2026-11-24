@@ -552,3 +552,59 @@
 .rld-sheet section.tab .resource-value-step { width: 11px !important; height: 11px !important; border-width: 1.2px !important; }
 .rld-sheet section.tab .resource-value-empty { width: 8px !important; height: 8px !important; font-size: 8px; }
 .rld-sheet .rld-hint { margin-top: 6px; }
+
+/* ── 0.4.2 ── */
+/* 배너 → 패널: 줄 없이 어둡게 풀어지게 */
+.rld-sheet .rld-banner { border-bottom: none !important; }
+.rld-sheet .rld-panel { border-top: none !important; background: #120c0d !important; padding: 4px 18px 10px; }
+.rld-sheet .rld-panel::before { display: none !important; }
+/* 패널 더 작게 */
+.rld-sheet .rld-medal { width: 66px; }
+.rld-sheet .rld-medal .mf { width: 38px; height: 38px; }
+.rld-sheet .rld-medal .mf .v { font-size: 17px; }
+.rld-sheet .rld-medal .mf svg { width: 14px; height: 18px; }
+.rld-sheet .rld-medal.is-hunger .mf .v { font-size: 11px; padding-top: 3px; }
+.rld-sheet .rld-medal .lb { font-size: 10px; margin-top: 1px; }
+.rld-sheet .rld-trkrow { grid-template-columns: repeat(4, 1fr) !important; margin-top: 6px; padding-top: 6px; }
+.rld-sheet .rld-k { font-size: 10px; margin-bottom: 3px; }
+.rld-sheet .rld-panel .resource-counter { gap: 3px; }
+.rld-sheet .rld-panel .resource-counter-step,
+.rld-sheet .rld-panel .humanity .resource-counter-step { width: 12px !important; height: 12px !important; min-width: 12px !important; flex: 0 0 12px !important; box-sizing: border-box !important; }
+.rld-sheet .rld-panel .resource-counter-step[data-state='/']::after { left: 1px; right: 1px; top: 4.5px; height: 1.5px; }
+.rld-sheet .rld-panel .resource-counter-step[data-state='x']::after { font-size: 8px; }
+.rld-sheet .rld-panel .hunger .resource-value-step { transform: scale(0.7); margin: 0 -2px !important; }
+.rld-sheet .rld-btnrow { margin-top: 8px; gap: 6px; }
+.rld-sheet .rld-btn { height: 26px; font-size: 11px; border-radius: 4px; }
+
+/* 디시플린: 회색 → 먹색 */
+.application.sheet.wod5e.actor.rld-sheet section.tab .icon.category-select,
+.application.sheet.wod5e.actor.rld-sheet section.tab .icon.power-select { background: #2a2224 !important; border-color: #1d1517 !important; }
+.application.sheet.wod5e.actor.rld-sheet section.tab .icon.category-select.selected,
+.application.sheet.wod5e.actor.rld-sheet section.tab .icon.power-select.selected { background: #9e1b26 !important; }
+.application.sheet.wod5e.actor.rld-sheet section.tab .powers-display-tree *,
+.application.sheet.wod5e.actor.rld-sheet section.tab .discipline * { border-color: #4a3d3f !important; }
+.application.sheet.wod5e.actor.rld-sheet section.tab .powers-display-tree .tree-line,
+.application.sheet.wod5e.actor.rld-sheet section.tab [class*='tree'] li::before,
+.application.sheet.wod5e.actor.rld-sheet section.tab [class*='tree'] li::after { border-color: #4a3d3f !important; }
+
+/* 다른 탭 글씨 줄이기 (피·인물 정보·특성 등) */
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .resource-header,
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .header-label,
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .field-header,
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .resource-label {
+  font-size: 13px !important; margin: 8px 0 4px !important; line-height: 1.3 !important;
+}
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) label.resource-header::before,
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .header-label::before { width: 15px; height: 15px; }
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) input,
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) select,
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .resource,
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .editor-content,
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .item-name,
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) p,
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) textarea {
+  font-size: 12px !important; line-height: 1.5 !important;
+}
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .resource-value-step { width: 10px !important; height: 10px !important; }
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .resource-counter-step { width: 12px !important; height: 12px !important; }
+.application.sheet.wod5e.actor.rld-sheet section.tab:not([data-tab='stats']) .item img { width: 20px !important; height: 20px !important; }
